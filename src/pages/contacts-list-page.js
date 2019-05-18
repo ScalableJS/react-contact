@@ -5,10 +5,8 @@ import contacts from '../DummyData/dummy-users';
 
 class ContactsListPage extends Component {
     createUserCards(contacts) {
-
-
         return contacts.map((contact, idx) => (
-                <Col className="align-self-start">
+                <Col md={6} lg={4} key={idx}>
                     <UserCard key={contact._id} contact={contact} deleteContact={null}/>
                 </Col>
             )
@@ -16,26 +14,7 @@ class ContactsListPage extends Component {
     }
 
     render() {
-        const createChunks = (array, size) => {
-            const copy = array.concat();
-            const chunks = [];
-
-            while (copy.length) {
-                chunks.push(copy.splice(0, size));
-            }
-
-            return chunks;
-        };
-
-        return createChunks(contacts, 2).map((chunk, idx) => {
-            return (
-                <Row>
-                    {this.createUserCards(chunk)}
-                </Row>
-            )
-        });
-
-
+        return (<Row>{this.createUserCards(contacts)}</Row>)
     }
 }
 
