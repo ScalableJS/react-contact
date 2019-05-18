@@ -1,0 +1,8 @@
+const actionsEnum = {
+    GET_ALL_CONTACTS: 'GET_ALL_CONTACTS',
+    CREATE_NEW_CONTACT: 'CREATE_CONTACT',
+    EDIT_CONTACT: 'EDIT_CONTACT',
+    DELETE_CONTACT: 'DELETE_CONTACT'
+};
+
+export default actionsEnum;
