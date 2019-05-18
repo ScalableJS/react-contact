@@ -1,26 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import { NavLink, Route } from 'react-router-dom';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  render() {
+    return (
+        <div>
+          <div className="ui two item menu">
+            <NavLink className="item" activeClassName="active" exact to="/">Contacts List</NavLink>
+            <NavLink className="item" activeClassName="active" exact to="/contacts/new">Add Contact</NavLink>
+          </div>
+          {/*<Route exact path="/" component={ContactsListPage}/>*/}
+          {/*<Route path="/contacts/new" component={ContactsFormPage}/>*/}
+          {/*<Route path="/contacts/edit/:_id" component={ContactsFormPage}/>*/}
+        </div>
+    );
+  }
 }
 
 export default App;
