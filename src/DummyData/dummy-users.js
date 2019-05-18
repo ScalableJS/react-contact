@@ -1,4 +1,4 @@
-export const contacts = [
+const contacts = [
     {
         "_id": "5ce008fc6816498774f83bb5",
         "name": {
@@ -72,3 +72,4 @@ export const contacts = [
         "phone": "(844) 559-2767"
     }
 ];
+export default contacts;
