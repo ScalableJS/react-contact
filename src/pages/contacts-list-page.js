@@ -1,9 +1,15 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import {getAllContacts} from '../actions/index';
 import {Row, Col} from 'react-bootstrap';
 import UserCard from '../components/user-card';
-import contacts from '../DummyData/dummy-users';
 
 class ContactsListPage extends Component {
+    componentDidMount = () => {
+        this.props.getAllContacts();
+    };
+
     createUserCards(contacts) {
         return contacts.map((contact, idx) => (
                 <Col md={6} lg={4} key={idx}>
@@ -14,8 +20,23 @@ class ContactsListPage extends Component {
     }
 
     render() {
-        return (<Row>{this.createUserCards(contacts)}</Row>)
+        if (this.props.contacts) {
+            return (<Row>{this.createUserCards(this.props.contacts)}</Row>)
+        } else {
+            return <h1>Loading ...</h1>
+        }
+
     }
 }
 
-export default ContactsListPage;
+function mapStateToProps(state) {
+    return {
+        contacts: state.contacts
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators({getAllContacts: getAllContacts}, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ContactsListPage);
