@@ -1,7 +1,12 @@
 import contact from '../DummyData/dummy-users'
+
 export const getAllContacts = () => {
-    return {
-        type: 'GET_ALL_CONTACTS',
-        payload: contact
+    return dispatch => {
+        setTimeout(() => {
+            dispatch({
+                type: 'GET_ALL_CONTACTS',
+                payload: contact
+            });
+        }, 1000);
     }
 };
