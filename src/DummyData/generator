@@ -1,0 +1,16 @@
+For user - https://next.json-generator.com/
+[
+  {
+    'repeat(5, 10)': {
+      _id: '{{objectId()}}',
+      name: {
+        first: '{{firstName()}}',
+        last: '{{surname()}}'
+      },
+      email(tags) {
+        return `${this.name.first}.${this.name.last}@${this.company}${tags.domainZone()}`.toLowerCase();
+      },
+      phone: '{{phone()}}'
+    }
+  }
+]
