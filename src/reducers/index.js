@@ -1,8 +1,10 @@
 import {combineReducers} from 'redux';
 import ContactsReducer from './contacts-reducer';
+import { reducer as formReducer } from 'redux-form';
 
 const allReducers = combineReducers({
-    contactStore: ContactsReducer
+    contactStore: ContactsReducer,
+    form: formReducer
 });
 
 
