@@ -6,14 +6,15 @@ import {Row, Col} from 'react-bootstrap';
 import UserCard from '../components/user-card';
 
 class ContactsListPage extends Component {
-    componentDidMount = () => {
+    componentDidMount() {
         this.props.getAllContacts();
     };
 
     createUserCards(contacts) {
         return contacts.map((contact, idx) => (
                 <Col md={6} lg={4} key={idx}>
-                    <UserCard key={contact._id} contact={contact} deleteContact={this.props.deleteContact} callPhone={null}/>
+                    <UserCard key={contact._id} contact={contact} deleteContact={this.props.deleteContact}
+                              callPhone={null}/>
                 </Col>
             )
         );
@@ -25,7 +26,6 @@ class ContactsListPage extends Component {
         } else {
             return <h1>Loading ...</h1>
         }
-
     }
 }
 
