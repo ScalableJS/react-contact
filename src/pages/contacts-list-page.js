@@ -31,7 +31,7 @@ class ContactsListPage extends Component {
 
 function mapStateToProps(state) {
     return {
-        contacts: state.contacts
+        contacts: state.contactStore.contacts
     }
 }
 
