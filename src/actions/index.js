@@ -1,26 +1,37 @@
-import contacts from '../DummyData/dummy-users'
 import actionEnum from './actionsEnum';
+import fetch from '../dummy/fetch';
+
 
 export const getAllContacts = () => {
     return dispatch => {
-        setTimeout(() => {
+        return fetch('/api/contacts', {
+            type: actionEnum.GET_ALL_CONTACTS,
+        }).then((contacts) => {
             dispatch({
                 type: actionEnum.GET_ALL_CONTACTS,
                 payload: contacts
             });
-        }, 1000);
+        })
     }
 };
 
 export function getContact(_id) {
     return dispatch => {
-        setTimeout(() => {
+        return fetch(`/api/contacts/${_id}`, {
+            type: actionEnum.GET_CONTACT
+        })
+            .then((contact) => {
             dispatch({
                 type: actionEnum.GET_CONTACT,
-                payload: contacts.find((item)=>item._id === _id)
-
-            });
-        }, 1000);
+                payload: contact
+            })
+        })
+            .catch((contact) => {
+                dispatch({
+                    type: actionEnum.GET_CONTACT,
+                    payload: null
+                })
+            })
     }
 }
 
@@ -34,37 +45,42 @@ export function newContact() {
 
 export function saveContact(contact) {
     return dispatch => {
-        setTimeout(() => {
+        return fetch('/api/contacts', {
+            contact: contact,
+            type: actionEnum.SAVE_CONTACT
+        }).then((contacts) => {
             dispatch({
                 type: actionEnum.SAVE_CONTACT,
-                payload: contact
-                // payload: client.post("/api/contacts", contact)
-            });
-        }, 1000);
+                payload: contacts
+            })
+        });
     }
 
 }
 
 export function updateContact(contact) {
     return dispatch => {
-        setTimeout(() => {
+        return fetch(`/api/contacts/${contact._id}`, {
+            contact: contact,
+            type: actionEnum.UPDATE_CONTACT
+        }).then((contacts) => {
             dispatch({
                 type: actionEnum.UPDATE_CONTACT,
-                payload: contact// contacts.find((item)=>item._id === _id)
-
-            });
-        }, 1000);
+                payload: contacts
+            })
+        })
     }
-
-
 }
+
 export function deleteContact(_id) {
     return dispatch => {
-        setTimeout(() => {
+        return fetch(`/api/contacts/${_id}`, {
+            type: actionEnum.DELETE_CONTACT
+        }).then(() => {
             dispatch({
                 type: actionEnum.DELETE_CONTACT,
-                payload: contacts.find((item)=>item._id === _id)
+                payload: _id
             });
-        }, 1000);
+        })
     }
 }

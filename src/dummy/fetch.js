@@ -2,7 +2,7 @@ import contacts from '../dummy/dummy-users'
 import actionsEnum from "../actions/actionsEnum";
 
 export default function fetch(url, arg) {
-    return new Promise(function (resolve, request) {
+    return new Promise(function (resolve, reject) {
         arg = Object.assign(arg);
         setTimeout(() => {
             const id = url.split('/').slice(-1)[0];
@@ -10,7 +10,14 @@ export default function fetch(url, arg) {
                 case actionsEnum.GET_ALL_CONTACTS:
                     return resolve(contacts.get());
                 case actionsEnum.GET_CONTACT:
-                    return resolve(contacts.get(id));
+                    const contact = contacts.get(id);
+                    // if contact is absent
+                    if(contacts.get(id)){
+                        return resolve(contact);
+                    } else {
+                        return reject(null);
+                    }
+
                 case actionsEnum.SAVE_CONTACT:
                     return resolve(contacts.add(arg.contact));
                 case actionsEnum.UPDATE_CONTACT:

@@ -108,7 +108,8 @@ const contacts = (function () {
         },
         get: function (id) {
             if (id) {
-                return Object.assign(contacts.find((item) => item._id === id));
+                const obj = contacts.find((item) => item._id === id);
+                return typeof obj == 'object' ? Object.assign(obj): null
             } else {
                 return Array.from(contacts);
             }
