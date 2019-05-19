@@ -7,9 +7,11 @@ import * as serviceWorker from './serviceWorker';
 import thunk from 'redux-thunk';
 import {Provider} from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
+import promise from "redux-promise-middleware";
 import allReducers from "./reducers";
 
-const store = createStore(allReducers, applyMiddleware(thunk));
+const middleware = applyMiddleware(promise, thunk);
+const store = createStore(allReducers, middleware);
 ReactDOM.render(
     <BrowserRouter>
         <Provider store={store}>
