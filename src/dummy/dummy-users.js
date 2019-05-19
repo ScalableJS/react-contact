@@ -75,9 +75,12 @@ const contacts = (function () {
         }
     ];
 
+    function generateId() {
+        return Math.random().toString(32).slice(2);
+    }
 
     const _public = {
-        save : function() {
+        save: function () {
             sessionStorage[STORAGE_NAME] = JSON.stringify(contacts);
         },
         remove: function (id) {
@@ -89,6 +92,11 @@ const contacts = (function () {
             });
             _public.save();
         },
+        add: function (contact) {
+            contact._id = generateId();
+            contacts.unshift(contact);
+            _public.save();
+        },
         update: function (contact) {
             // Update Mock serverside
             contacts.forEach((item, n) => {
@@ -98,11 +106,15 @@ const contacts = (function () {
             });
             _public.save();
         },
-        get: function () {
-            return Array.from(contacts);
+        get: function (id) {
+            if (id) {
+                return Object.assign(contacts.find((item) => item._id === id));
+            } else {
+                return Array.from(contacts);
+            }
+
         }
     };
-
 
 
     // constructor
