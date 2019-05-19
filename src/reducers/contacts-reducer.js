@@ -7,7 +7,7 @@ const defaultState = {
     contacts: [],
     contact: defaultContact
 };
-export default function (state = {}, action) {
+export default (state = {}, action) => {
     switch (action.type) {
         case actionsEnum.GET_ALL_CONTACTS:
             return {
@@ -24,11 +24,14 @@ export default function (state = {}, action) {
                 ...state,
                 contact: defaultContact
             };
-
-
-
+        case actionsEnum.UPDATE_CONTACT:
+            return {
+                ...state,
+                contacts: action.payload,
+            };
         case actionsEnum.DELETE_CONTACT:
-            const _id = action.payload._id;
+            const _id = action.payload;
+
             return {
                 ...state,
                 contacts: state.contacts.filter(item => item._id !== _id)
