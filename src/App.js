@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {NavLink, Route} from 'react-router-dom';
-import {Container, Navbar, Nav, NavItem} from 'react-bootstrap';
+import {Container, Nav, NavItem} from 'react-bootstrap';
 
 import ContactsListPage from './pages/contacts-list-page'
 import ContactsFormPage from './pages/contacts-form-page'
@@ -23,7 +23,7 @@ class App extends Component {
 
                 <Route exact path="/" component={ContactsListPage}/>
                 <Route path="/contacts/new" component={ContactsFormPage}/>
-                {/*<Route path="/contacts/edit/:_id" component={ContactsFormPage}/>*/}
+                <Route path="/contacts/edit/:_id" component={ContactsFormPage}/>
                 {/*<Route path="/contacts/call/:_id" component={CallHistoryPage}/>*/}
 
 
