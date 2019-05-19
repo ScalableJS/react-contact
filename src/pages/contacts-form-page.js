@@ -47,7 +47,10 @@ class ContactsFormPage extends Component {
                             contact={this.props.contact}
                             isNew={false}
                         />)
-                } else {
+                }
+                if (this.props.contact === null) {
+                    return <h1>The contact is missing or deleted</h1>
+                }else {
                     return <h1>Loading ...</h1>
                 }
 
