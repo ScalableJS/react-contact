@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import {Field, reduxForm} from 'redux-form';
-import {Form, Row, Col, Button, FormGroup, FormControl} from 'react-bootstrap';
+import {Form, Field, reduxForm} from 'redux-form';
+import {Row, Col, Button, FormGroup, FormControl} from 'react-bootstrap';
 
 
 const renderField = ({input, label, type, meta: {touched, error}}) => {
@@ -19,7 +19,6 @@ const renderField = ({input, label, type, meta: {touched, error}}) => {
 };
 
 class UserForm extends Component {
-
     // Load Contact Asynchronously
     componentDidMount() {
         this.props.initialize(this.props.contact)
@@ -27,12 +26,14 @@ class UserForm extends Component {
 
 
     render() {
-        const {handleSubmit, pristine, submitting} = this.props;
+        const {handleSubmit, pristine, submitting, isNew} = this.props;
+
+
         return (
             <Row>
                 <Col>
-                    <h1>Add New Contact</h1>
-                    <Form onSubmit={handleSubmit} loading={`true`}>
+                    <h1>{isNew?`Add New Contact`: `Edit Contact`}</h1>
+                    <Form onSubmit={handleSubmit}>
                         <FormGroup>
 
                             <Field component={renderField} name="name.first" type="text" label="First Name"/>
@@ -43,7 +44,7 @@ class UserForm extends Component {
                         <Field name="phone" type="text" label="Phone" component={renderField}/>
                         <Field name="email" type="text" label="Email" component={renderField}/>
 
-                        <Button variant="primary" type='submit' disabled={pristine || submitting}>Save</Button>
+                        <Button variant="primary" type='submit' disabled={pristine || submitting} >Save</Button>
                     </Form>
                 </Col>
             </Row>
