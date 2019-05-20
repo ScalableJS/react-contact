@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {IconUser, IconMail, IconPhone} from './Icons'
 import {Card, Button} from 'react-bootstrap';
 
