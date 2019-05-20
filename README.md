@@ -10,9 +10,9 @@ The following was implemented:
 - contact creating (redux-form without validation)  
 - contact editing  
 - contact removing  
+- history of calls for each contact
 
 ###working on it
-- history of calls for each contact
 - pagination
 
 ###Info:
