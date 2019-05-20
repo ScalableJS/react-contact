@@ -1,12 +1,16 @@
 import React from 'react';
-import {ListGroup, Button} from 'react-bootstrap';
+import {ListGroup, Row, Col} from 'react-bootstrap';
+import {IconIncoming, IconOutgoing} from "./Icons";
 
 export default function UserCall({contact}) {
-    const callTypes = ['Outgoing', 'Incoming', 'Didn\'t connect'];
-    // "timestamp": 1556176577183,
-    //     "duration": 1075937
-    // Load Contact Asynchronously
-    // <span>Duration {new Date(item.timestamp)}</span>
+    const CallDirect = ({type})=>{
+        if(type === 1){
+            return <Col>{'Incoming'}<IconIncoming /></Col>
+        } else if(type === 2){
+            return <Col>{'Outgoing'}<IconOutgoing /></Col>
+        }
+        return <Col>'Didn\'t connect'</Col>
+    };
     return (
         contact.callHistory.map((item) => {
             const formatCallDate = new Intl.DateTimeFormat('en-GB', {
@@ -21,11 +25,13 @@ export default function UserCall({contact}) {
                 second: 'numeric'
             }).format(item.duration);
 
-            return <ListGroup.Item key={item._id}>
-                <span>{formatCallDate}</span>
 
-                <span>{callTypes[item.type - 1]}</span>
-                <span>Duration: {formatCallDuration}</span>
+            return <ListGroup.Item key={item._id}>
+                <Row>
+                    <Col className={'text-nowrap'}>{formatCallDate}</Col>
+                    <CallDirect type={item.type}/>
+                    <Col className={'text-nowrap'}>Duration: {formatCallDuration}</Col>
+                </Row>
             </ListGroup.Item>
         })
     )
