@@ -3,10 +3,10 @@ import actionsEnum from '../actions/actionsEnum'
 const defaultContact = {
     name: {}
 };
-const defaultState = {
-    contacts: [],
-    contact: defaultContact
-};
+// const defaultState = {
+//     contacts: [],
+//     contact: defaultContact
+// };
 export default (state = {}, action) => {
     switch (action.type) {
         case actionsEnum.GET_ALL_CONTACTS:
