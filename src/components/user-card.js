@@ -33,6 +33,7 @@ export default function UserCard({contact, deleteContact, callPhone}) {
                 <Card.Text>
                 </Card.Text>
                 <hr/>
+                <Button variant="link" href={`/contacts/calls/${contact._id}`}> Call history</Button>
                 <Button variant="link" href={`/contacts/edit/${contact._id}`}> Edit</Button>
                 <Button variant="primary"
                         onClick={() => deleteContact(contact._id)}> Delete</Button>
