@@ -11,19 +11,19 @@ const contacts = (function () {
             "phone": "(814) 528-3782",
             "callHistory": [
                 {
-                    "id": "5ce27db8b03a641bcd1913d6",
+                    "_id": "5ce27db8b03a641bcd1913d6",
                     "type": 1,
                     "timestamp": 1465427038908,
                     "duration": 860823
                 },
                 {
-                    "id": "5ce27db8c0dd2793121f9b9b",
+                    "_id": "5ce27db8c0dd2793121f9b9b",
                     "type": 2,
                     "timestamp": 1453948040604,
                     "duration": 1125109
                 },
                 {
-                    "id": "5ce27db8994df1d48b10dbec",
+                    "_id": "5ce27db8994df1d48b10dbec",
                     "type": 1,
                     "timestamp": 1543179957835,
                     "duration": 321384
@@ -40,19 +40,19 @@ const contacts = (function () {
             "phone": "(931) 479-3774",
             "callHistory": [
                 {
-                    "id": "5ce27db81758f7191e826040",
+                    "_id": "5ce27db81758f7191e826040",
                     "type": 2,
                     "timestamp": 1556176577183,
                     "duration": 1075937
                 },
                 {
-                    "id": "5ce27db8036b085959a2da22",
+                    "_id": "5ce27db8036b085959a2da22",
                     "type": 1,
                     "timestamp": 1520467211491,
                     "duration": 333922
                 },
                 {
-                    "id": "5ce27db895bf53c7961e3b91",
+                    "_id": "5ce27db895bf53c7961e3b91",
                     "type": 1,
                     "timestamp": 1549757570537,
                     "duration": 1215330
@@ -69,19 +69,19 @@ const contacts = (function () {
             "phone": "(947) 599-2696",
             "callHistory": [
                 {
-                    "id": "5ce27db84b6d036a948112f2",
+                    "_id": "5ce27db84b6d036a948112f2",
                     "type": 2,
                     "timestamp": 1397936975985,
                     "duration": 746746
                 },
                 {
-                    "id": "5ce27db8121957fdc684d8b4",
+                    "_id": "5ce27db8121957fdc684d8b4",
                     "type": 1,
                     "timestamp": 1460634562198,
                     "duration": 254902
                 },
                 {
-                    "id": "5ce27db8412723a5fd4f424c",
+                    "_id": "5ce27db8412723a5fd4f424c",
                     "type": 1,
                     "timestamp": 1521280932414,
                     "duration": 848305
@@ -98,19 +98,19 @@ const contacts = (function () {
             "phone": "(998) 427-2600",
             "callHistory": [
                 {
-                    "id": "5ce27db80fa3199ebd4d7e93",
+                    "_id": "5ce27db80fa3199ebd4d7e93",
                     "type": 2,
                     "timestamp": 1458575396919,
                     "duration": 853980
                 },
                 {
-                    "id": "5ce27db86c50e2a6d0be4f26",
+                    "_id": "5ce27db86c50e2a6d0be4f26",
                     "type": 3,
                     "timestamp": 1551595327057,
                     "duration": 1325706
                 },
                 {
-                    "id": "5ce27db8683200ec56394bf0",
+                    "_id": "5ce27db8683200ec56394bf0",
                     "type": 1,
                     "timestamp": 1392885102808,
                     "duration": 873247
@@ -127,19 +127,19 @@ const contacts = (function () {
             "phone": "(986) 581-2186",
             "callHistory": [
                 {
-                    "id": "5ce27db8967c13cc4a1a8b61",
+                    "_id": "5ce27db8967c13cc4a1a8b61",
                     "type": 1,
                     "timestamp": 1427965503532,
                     "duration": 1426565
                 },
                 {
-                    "id": "5ce27db81033da1f3aa006de",
+                    "_id": "5ce27db81033da1f3aa006de",
                     "type": 1,
                     "timestamp": 1523382528114,
                     "duration": 1629805
                 },
                 {
-                    "id": "5ce27db8c529fc4fb5509e45",
+                    "_id": "5ce27db8c529fc4fb5509e45",
                     "type": 3,
                     "timestamp": 1502797701049,
                     "duration": 582791
@@ -156,19 +156,19 @@ const contacts = (function () {
             "phone": "(912) 462-3404",
             "callHistory": [
                 {
-                    "id": "5ce27db8e4da4ace8b57db43",
+                    "_id": "5ce27db8e4da4ace8b57db43",
                     "type": 1,
                     "timestamp": 1389814358021,
                     "duration": 47340
                 },
                 {
-                    "id": "5ce27db8ee39f7cdafb15017",
+                    "_id": "5ce27db8ee39f7cdafb15017",
                     "type": 3,
                     "timestamp": 1430797554798,
                     "duration": 1415149
                 },
                 {
-                    "id": "5ce27db8c8fa4b14ea89adc5",
+                    "_id": "5ce27db8c8fa4b14ea89adc5",
                     "type": 1,
                     "timestamp": 1477827480280,
                     "duration": 751675
@@ -185,19 +185,19 @@ const contacts = (function () {
             "phone": "(939) 457-2744",
             "callHistory": [
                 {
-                    "id": "5ce27db89c2492b63f821c4d",
+                    "_id": "5ce27db89c2492b63f821c4d",
                     "type": 3,
                     "timestamp": 1513652404819,
                     "duration": 1564363
                 },
                 {
-                    "id": "5ce27db82a70eb1bd53eb5b8",
+                    "_id": "5ce27db82a70eb1bd53eb5b8",
                     "type": 1,
                     "timestamp": 1527856645262,
                     "duration": 1215921
                 },
                 {
-                    "id": "5ce27db835daecf203da6ba8",
+                    "_id": "5ce27db835daecf203da6ba8",
                     "type": 1,
                     "timestamp": 1544315867927,
                     "duration": 1403694
@@ -214,19 +214,19 @@ const contacts = (function () {
             "phone": "(974) 434-2290",
             "callHistory": [
                 {
-                    "id": "5ce27db801e260e2c2dec382",
+                    "_id": "5ce27db801e260e2c2dec382",
                     "type": 1,
                     "timestamp": 1399446830239,
                     "duration": 902773
                 },
                 {
-                    "id": "5ce27db8ed697c2cd06af567",
+                    "_id": "5ce27db8ed697c2cd06af567",
                     "type": 1,
                     "timestamp": 1474935269163,
                     "duration": 377440
                 },
                 {
-                    "id": "5ce27db85cb8fdd2bb37582c",
+                    "_id": "5ce27db85cb8fdd2bb37582c",
                     "type": 2,
                     "timestamp": 1405772759181,
                     "duration": 382526
@@ -243,19 +243,19 @@ const contacts = (function () {
             "phone": "(949) 567-2528",
             "callHistory": [
                 {
-                    "id": "5ce27db84d8b1ba2a88fe876",
+                    "_id": "5ce27db84d8b1ba2a88fe876",
                     "type": 2,
                     "timestamp": 1555574820564,
                     "duration": 513593
                 },
                 {
-                    "id": "5ce27db810878a6bc6caf921",
+                    "_id": "5ce27db810878a6bc6caf921",
                     "type": 1,
                     "timestamp": 1403971827731,
                     "duration": 921593
                 },
                 {
-                    "id": "5ce27db874bafb939a87930c",
+                    "_id": "5ce27db874bafb939a87930c",
                     "type": 2,
                     "timestamp": 1510655604355,
                     "duration": 1450281
