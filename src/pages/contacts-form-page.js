@@ -10,7 +10,7 @@ import {getContact, newContact, updateContact, saveContact} from '../actions';
 class ContactsFormPage extends Component {
     state = {
         redirect: false
-    }
+    };
 
     componentDidMount() {
         const {_id} = this.props.match.params;
@@ -25,14 +25,17 @@ class ContactsFormPage extends Component {
         if (contact._id) {
             return this.props.updateContact(contact)
                 .then(response => this.setState({redirect: true}))
-                .catch(err => {throw new SubmissionError(this.props.errors)})
+                .catch(err => {
+                    throw new SubmissionError(this.props.errors)
+                })
         } else {
             return this.props.saveContact(contact)
                 .then(response => this.setState({redirect: true}))
-                .catch(err => {throw new SubmissionError(this.props.errors)})
+                .catch(err => {
+                    throw new SubmissionError(this.props.errors)
+                })
         }
     };
-
 
     render() {
         const {_id} = this.props.match.params;
@@ -47,13 +50,11 @@ class ContactsFormPage extends Component {
                             contact={this.props.contact}
                             isNew={false}
                         />)
-                }
-                if (this.props.contact === null) {
+                } else if (this.props.contact === null) {
                     return <h1>The contact is missing or deleted</h1>
-                }else {
+                } else {
                     return <h1>Loading ...</h1>
                 }
-
             } else {
                 return (
                     <UserForm
@@ -63,8 +64,6 @@ class ContactsFormPage extends Component {
 
                     />)
             }
-
-
         }
     }
 }
