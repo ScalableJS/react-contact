@@ -1,4 +1,4 @@
-For user - https://next.json-generator.com/
+For user - https://next.json-generator.com/N1NE5wohU
 [
   {
     'repeat(5, 10)': {
@@ -10,7 +10,19 @@ For user - https://next.json-generator.com/
       email(tags) {
         return `${this.name.first}.${this.name.last}@${this.company}${tags.domainZone()}`.toLowerCase();
       },
-      phone: '{{phone()}}'
+      phone: '{{phone()}}',
+      callHistory: [
+        {
+          'repeat(3)': {
+            id: '{{objectId()}}',
+            type: '{{integer(1, 3)}}',
+            timestamp: '{{date(new Date(2014, 0, 1), new Date()).getTime()}}',
+            duration: '{{integer(1000, 1000 * 60 * 30)}}'
+          }
+        }
+      ]
     }
   }
 ]
+
+type -Outgoing / Didn't connect / Incoming
