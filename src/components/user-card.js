@@ -6,17 +6,17 @@ export default function UserCard({contact, deleteContact, callPhone}) {
     return (
         <Card className={"m-2"}>
             <Card.Body>
-                <Card.Title>
+                <Card.Title className={'text-nowrap'}>
                     <IconUser/>
                     <span className="align-middle">{contact.name.first} {contact.name.last}</span>
                 </Card.Title>
-                <Card.Text>
+                <Card.Text className={'text-nowrap'}>
                     <IconPhone/>
                     <a href={`tel:${contact.phone}`}
                        onClick={() => callPhone(contact._id)}
                     >{contact.phone}</a>
                 </Card.Text>
-                <Card.Text>
+                <Card.Text className={'text-nowrap'}>
                     <IconMail/>
                     <a href={`mailto:${contact.email}`}>{contact.email}</a>
                 </Card.Text>
