@@ -4,14 +4,13 @@ import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import thunk from 'redux-thunk';
-import {Provider} from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
-import promise from "redux-promise-middleware";
-import allReducers from "./reducers";
 
-const middleware = applyMiddleware(promise, thunk);
-const store = createStore(allReducers, middleware);
+import {Provider} from 'react-redux';
+
+
+
+
+import store from "./store";
 ReactDOM.render(
     <BrowserRouter>
         <Provider store={store}>
