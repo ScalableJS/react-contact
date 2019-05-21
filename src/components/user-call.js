@@ -2,6 +2,7 @@ import React from 'react';
 import {ListGroup, Row, Col} from 'react-bootstrap';
 import {IconIncoming, IconOutgoing} from "./Icons";
 
+
 export default function UserCall({contact}) {
     const CallDirect = ({type})=>{
         if(type === 1){
@@ -11,6 +12,7 @@ export default function UserCall({contact}) {
         }
         return <Col>'Didn\'t connect'</Col>
     };
+
     return (
         contact.callHistory.map((item) => {
             const formatCallDate = new Intl.DateTimeFormat('en-GB', {
