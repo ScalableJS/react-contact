@@ -1,19 +1,22 @@
 import actionsEnum from '../actions/actionsEnum'
 
 const defaultContact = {
-    name: {}
+    name: {},
+    callHistory: []
 };
-// const defaultState = {
-//     contacts: [],
-//     contact: defaultContact
-// };
-export default (state = {}, action) => {
+const defaultState = {
+    contacts: [],
+    contact: defaultContact,
+    loading: false
+};
+export default (state = defaultState, action) => {
     switch (action.type) {
         case actionsEnum.GET_ALL_CONTACTS:
             return {
                 ...state,
                 contacts: action.payload
             };
+
         case actionsEnum.GET_CONTACT:
             return {
                 ...state,
