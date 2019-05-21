@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Form, Field, reduxForm} from 'redux-form';
 import {Row, Col, Button, FormGroup, FormControl} from 'react-bootstrap';
-
+import {connect} from "react-redux";
 
 const renderField = ({input, label, type, meta: {touched, error}}) => {
     return <FormControl
@@ -9,7 +9,7 @@ const renderField = ({input, label, type, meta: {touched, error}}) => {
         placeholder={label}
 
         value={input.value}
-        onChange={input.onChange} />
+        onChange={input.onChange}/>
     //  return <div>
     //
     //     <label>{label}</label>
@@ -21,30 +21,34 @@ const renderField = ({input, label, type, meta: {touched, error}}) => {
 class UserForm extends Component {
     // Load Contact Asynchronously
     componentDidMount() {
+        // this.props.dispatch(getContact()).then(()=>{
+        //     this.props.initialize(this.props.data)
+        //     this.setState({load:true})
+        // })
         this.props.initialize(this.props.contact)
     };
 
+    // componentWillUpdate(prevProps) {
+    //     const {contact} = prevProps;
+    //     if (this.props.contact && this.props.contact._id !== contact._id) {
+    //         this.props.initialize(this.props.contact)
+    //     }
+    // };
 
     render() {
         const {handleSubmit, pristine, submitting, isNew} = this.props;
-
-
         return (
             <Row>
                 <Col>
-                    <h1>{isNew?`Add New Contact`: `Edit Contact`}</h1>
+                    <h1>{isNew ? `Add New Contact` : `Edit Contact`}</h1>
                     <Form onSubmit={handleSubmit}>
                         <FormGroup>
-
                             <Field component={renderField} name="name.first" type="text" label="First Name"/>
                             <Field component={renderField} name="name.last" type="text" label="Last Name"/>
                         </FormGroup>
-
-
                         <Field name="phone" type="text" label="Phone" component={renderField}/>
                         <Field name="email" type="text" label="Email" component={renderField}/>
-
-                        <Button variant="primary" type='submit' disabled={pristine || submitting} >Save</Button>
+                        <Button variant="primary" type='submit' disabled={pristine || submitting}>Save</Button>
                     </Form>
                 </Col>
             </Row>
@@ -54,4 +58,24 @@ class UserForm extends Component {
     }
 }
 
-export default reduxForm({form: 'contact'})(UserForm);
+// export default reduxForm({
+//     form: 'UserForm',
+//     enableReinitialize: true,
+//     keepDirtyOnReinitialize: true
+// })(UserForm);
+
+UserForm = reduxForm({
+    form: 'UserForm',
+    enableReinitialize: true,
+    keepDirtyOnReinitialize: true
+})(UserForm);
+
+function mapStateToProps(state) {
+    return {
+        initialValues: state.contactStore.contact,
+        contact: state.contactStore.contact,
+    }
+}
+
+
+export default connect(mapStateToProps, {})(UserForm);
