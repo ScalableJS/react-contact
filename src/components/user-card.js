@@ -1,5 +1,6 @@
 import React from 'react';
 import {IconUser, IconMail, IconPhone} from './Icons'
+import { Link} from 'react-router-dom';
 import {Card, Button} from 'react-bootstrap';
 
 export default function UserCard({contact, deleteContact, callPhone}) {
@@ -21,8 +22,8 @@ export default function UserCard({contact, deleteContact, callPhone}) {
                     <a href={`mailto:${contact.email}`}>{contact.email}</a>
                 </Card.Text>
                 <hr/>
-                <Button variant="link" href={`/contacts/calls/${contact._id}`}> Call history</Button>
-                <Button variant="link" href={`/contacts/edit/${contact._id}`}> Edit</Button>
+                <Link className={'btn btn-link'} to={`/contacts/calls/${contact._id}`}> Call history</Link>
+                <Link className={'btn btn-link'} to={`/contacts/edit/${contact._id}`}> Edit</Link>
                 <Button variant="primary"
                         onClick={() => deleteContact(contact._id)}> Delete</Button>
             </Card.Body>
