@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import {Redirect} from 'react-router';
 import {bindActionCreators} from 'redux';
 import {connect} from "react-redux";
-import {SubmissionError} from 'redux-form';
 import UserForm from '../components/user-form';
+import { SubmissionError } from 'redux-form';
 import {getContact, newContact, updateContact, saveContact} from '../actions';
 
 
@@ -68,11 +68,9 @@ class ContactsFormPage extends Component {
     }
 }
 
-
 function mapStateToProps(state) {
     return {
         contact: state.contactStore.contact,
-        contacts: state.contactStore.contacts,
     }
 }
 

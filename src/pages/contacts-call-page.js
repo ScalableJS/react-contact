@@ -7,38 +7,30 @@ import {getContact} from "../actions";
 import UserCall from "../components/user-call";
 
 class ContactsCallPage extends Component {
-    state = {
-        redirect: false
-    };
-
     componentDidMount() {
         const {_id} = this.props.match.params;
-        if (_id) {
-            this.props.getContact(_id);
-        }
+        this.props.getContact(_id);
     }
 
     render() {
         const {_id} = this.props.match.params;
         const {contact} = this.props;
-        if (this.state.redirect) {
-            return <Redirect to="/"/>
-        } else {
-            if (_id) {
-                if (this.props.contact) {
-                    return (
-                        <ListGroup>
-                            <UserCall
-                                contact={contact}
-                            />
-                        </ListGroup>)
-                } else if (this.props.contact === null) {
-                    return <h1>The contact is missing or deleted</h1>
-                } else {
-                    return <h1>Loading ...</h1>
-                }
+
+        if (_id) {
+            if (this.props.contact) {
+                return (
+                    <ListGroup>
+                        <UserCall
+                            contact={contact}
+                        />
+                    </ListGroup>)
+            } else if (this.props.contact === null) {
+                return <h1>The contact is missing or deleted</h1>
+            } else {
+                return <h1>Loading ...</h1>
             }
         }
+
     }
 }
 
