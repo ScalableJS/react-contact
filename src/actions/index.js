@@ -38,7 +38,7 @@ export function getContact(_id) {
 export function newContact() {
     return dispatch => {
         dispatch({
-            type: 'NEW_CONTACT'
+            type: actionEnum.NEW_CONTACT
         })
     }
 }
