@@ -1,5 +1,5 @@
 In the project directory, you can run:
-
+### `json-server --watch ./backend/db.json --port 3001`  
 ### `npm start`
 
 Runs the app in the development mode.<br>
@@ -11,9 +11,11 @@ The following was implemented:
 - contact editing  
 - contact removing  
 - history of calls for each contact
-
+ 
 ###working on it
+- json-server
 - pagination
+
 
 ###Info:
 App emulates request to backend but work using sessionStorage  
