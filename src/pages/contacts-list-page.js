@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {getAllContacts, deleteContact} from '../actions/index';
+import {fetchContacts, deleteContact} from '../actions/index';
 import {Row, Col} from 'react-bootstrap';
 import UserCard from '../components/user-card';
 
 class ContactsListPage extends Component {
     componentDidMount() {
-        this.props.getAllContacts();
+        this.props.fetchContacts();
     };
 
     createUserCards(contacts) {
@@ -36,7 +36,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({getAllContacts, deleteContact}, dispatch)
+    return bindActionCreators({fetchContacts, deleteContact}, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ContactsListPage);

@@ -1,19 +1,33 @@
 import actionEnum from './actionsEnum';
-import fetch from '../dummy/fetch';
+import {fetchContactsPending, fetchContactsSuccess, fetchContactsError} from './fetchContacts'
+
+const baseURL =  'http://localhost:3030';
+const headers = {'Content-Type': 'application/json'}
 
 
-export const getAllContacts = () => {
+export const fetchContacts = () => {
+
     return dispatch => {
-        return fetch('/api/contacts', {
-            type: actionEnum.GET_ALL_CONTACTS,
-        }).then((contacts) => {
-            dispatch({
-                type: actionEnum.GET_ALL_CONTACTS,
-                payload: contacts
-            });
-        })
+
+        dispatch(fetchContactsPending());
+        fetch(`${baseURL}/contacts`)
+            .then(res => res.json())
+            .then(res => {
+                console.log(res)
+                if(res.error) {
+                    throw(res.error);
+                }
+
+                dispatch(fetchContactsSuccess(res));
+                return res;
+            })
+            .catch(error => {
+                dispatch(fetchContactsError(error));
+            })
+
     }
 };
+
 
 export function getContact(_id) {
     return dispatch => {

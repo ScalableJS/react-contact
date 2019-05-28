@@ -1,5 +1,6 @@
 In the project directory, you can run:
-### `json-server --watch ./backend/db.json --port 3001`  
+### `json-server --watch ./backend/db.json --port 3030`  
+test - `http://localhost:3030/contacts`
 ### `npm start`
 
 Runs the app in the development mode.<br>
