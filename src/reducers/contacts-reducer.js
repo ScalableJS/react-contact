@@ -1,5 +1,6 @@
 import actionsEnum from '../actions/actionsEnum';
-import {FETCH_CONTACTS_PENDING, FETCH_CONTACTS_SUCCESS, FETCH_CONTACTS_ERROR} from '../actions/fetchContacts';
+import {FETCH_CONTACTS_PENDING, FETCH_CONTACTS_SUCCESS, FETCH_CONTACTS_ERROR} from '../actions/contacts';
+import {FETCH_CONTACT_PENDING, FETCH_CONTACT_SUCCESS, FETCH_CONTACT_ERROR} from '../actions/contact';
 
 const defaultContact = {
     name: {},
@@ -12,6 +13,7 @@ const defaultState = {
 };
 export default (state = defaultState, action) => {
     switch (action.type) {
+        // FETCH_CONTACTS
         case FETCH_CONTACTS_PENDING:
             return {
                 ...state,
@@ -29,13 +31,27 @@ export default (state = defaultState, action) => {
                 pending: false,
                 error: action.error
             };
-
-
-        case actionsEnum.GET_CONTACT:
+        // FETCH ONE CONTACT
+        case FETCH_CONTACT_PENDING:
             return {
                 ...state,
-                contact: action.payload
+                pending: true
             };
+        case FETCH_CONTACT_SUCCESS:
+            return {
+                ...state,
+                pending: false,
+                contact: action.contact
+            };
+        case FETCH_CONTACT_ERROR:
+            return {
+                ...state,
+                pending: false,
+                error: action.error
+            };
+
+        // -------------
+
         case actionsEnum.NEW_CONTACT:
             return {
                 ...state,
