@@ -31,7 +31,7 @@ export const fetchContact = (_id) => {
                 if(res.error) {
                     throw(res.error);
                 }
-                dispatch(fetchContactSuccess(res));
+                dispatch(fetchContactSuccess(res[0]));
                 return res;
             })
             .catch(error => {
