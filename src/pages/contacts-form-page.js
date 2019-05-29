@@ -50,6 +50,7 @@ class ContactsFormPage extends Component {
                         <UserForm
                             onSubmit={this.submit}
                             contact={this.props.contact}
+                            initialValues={this.props.contact}
                             isNew={false}
                         />)
                 } else if (this.props.contact === null) {
