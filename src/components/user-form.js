@@ -5,42 +5,24 @@ import {connect} from "react-redux";
 import {fetchContact} from '../actions/contact'
 
 const renderField = ({input, label, type, meta: {touched, error}}) => {
-    // return <FormControl
-    //     type={type}
-    //     placeholder={label}
-    //
-    //     value={input.value}
-    //     onChange={input.onChange}/>
-    return <div>
+    return <FormControl
+        type={type}
+        placeholder={label}
 
-        <label>{label}</label>
-        <input {...input} placeholder={label} type={type}/>
-        {touched && error && <span className="error">{error.message}</span>}
-    </div>
+        value={input.value}
+        onChange={input.onChange}/>
+    // return <div>
+    //
+    //     <label>{label}</label>
+    //     <input {...input} placeholder={label} type={type}/>
+    //     {touched && error && <span className="error">{error.message}</span>}
+    // </div>
 };
 
 class UserForm extends Component {
-    // Load Contact Asynchronously
-    // componentDidMount() {
-    //     this.props.dispatch(fetchContact).then(()=>{
-    //         this.props.initialize(this.props.contact)
-    //         this.setState({load:true})
-    //     })
-    // };
-
-    // Load Contact Asynchronously
-    componentWillReceiveProps = (nextProps) => {
-        const { contact } = nextProps;
-        // Initialize form only once
-        if(contact._id !== this.props.contact._id) {
-            this.props.initialize(contact)
-        }
-    }
 
     render() {
-
         const {handleSubmit, pristine, submitting, isNew} = this.props;
-        console.log(this.props.contact)
         return (
             <Row>
                 <Col>
@@ -68,7 +50,8 @@ class UserForm extends Component {
 // })(UserForm);
 
 UserForm = reduxForm({
-    form: 'UserForm'  // a unique identifier for this form
+    form: 'UserForm',  // a unique identifier for this form
+    enableReinitialize: true,
 })(UserForm)
 
 // You have to connect() to any reducers that you wish to connect to yourself
