@@ -43,18 +43,7 @@ class UserForm extends Component {
     }
 }
 
-UserForm = reduxForm({
+export default reduxForm({
     form: 'UserForm',  // a unique identifier for this form
     enableReinitialize: true,
 })(UserForm);
-
-// You have to connect() to any reducers that you wish to connect to yourself
-UserForm = connect(
-    state => {
-        return {
-            initialValues: state.contactStore.contact // pull initial values from account reducer
-        }
-    }
-)(UserForm);
-
-export default UserForm
