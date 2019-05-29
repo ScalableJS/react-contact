@@ -1,4 +1,5 @@
 In the project directory, you can run:
+### `npm install -g json-server`
 ### `json-server --watch ./backend/db.json --port 3030`  
 test - `http://localhost:3030/contacts`
 ### `npm start`
