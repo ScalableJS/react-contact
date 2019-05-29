@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Form, Field, reduxForm} from 'redux-form';
 import {Row, Col, Button, FormGroup, FormControl} from 'react-bootstrap';
 import {connect} from "react-redux";
+import {fetchContact} from '../actions/contact'
 
 const renderField = ({input, label, type, meta: {touched, error}}) => {
     return <FormControl
@@ -20,22 +21,24 @@ const renderField = ({input, label, type, meta: {touched, error}}) => {
 
 class UserForm extends Component {
     // Load Contact Asynchronously
-    componentDidMount() {
-        // this.props.dispatch(getContact()).then(()=>{
-        //     this.props.initialize(this.props.data)
-        //     this.setState({load:true})
-        // })
-        this.props.initialize(this.props.contact)
-    };
-
-    // componentWillUpdate(prevProps) {
-    //     const {contact} = prevProps;
-    //     if (this.props.contact && this.props.contact._id !== contact._id) {
-    //         this.props.initialize(this.props.contact)
-    //     }
+    // componentDidMount() {
+    //     this.props.dispatch(fetchContact).then(()=>{
+    //         this.props.initialize(this.props.data)
+    //         this.setState({load:true})
+    //     })
     // };
 
+    // Load Contact Asynchronously
+    // componentWillReceiveProps = (nextProps) => {
+    //     const { contact } = nextProps;
+    //     // Initialize form only once
+    //     if(contact._id !== this.props.contact._id) {
+    //         this.props.initialize(contact)
+    //     }
+    // }
+
     render() {
+
         const {handleSubmit, pristine, submitting, isNew} = this.props;
         return (
             <Row>
@@ -58,24 +61,8 @@ class UserForm extends Component {
     }
 }
 
-// export default reduxForm({
-//     form: 'UserForm',
-//     enableReinitialize: true,
-//     keepDirtyOnReinitialize: true
-// })(UserForm);
-
-UserForm = reduxForm({
+export default reduxForm({
     form: 'UserForm',
-    enableReinitialize: true,
-    keepDirtyOnReinitialize: true
+    enableReinitialize: true
 })(UserForm);
 
-function mapStateToProps(state) {
-    return {
-        initialValues: state.contactStore.contact,
-        contact: state.contactStore.contact,
-    }
-}
-
-
-export default connect(mapStateToProps, {})(UserForm);
