@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {Form, Field, reduxForm} from 'redux-form';
 import {Row, Col, Button, FormGroup, FormControl} from 'react-bootstrap';
 import {connect} from "react-redux";
-import {fetchContact} from '../actions/contact'
 
 const renderField = ({input, label, type, meta: {touched, error}}) => {
     return <FormControl
@@ -44,15 +43,10 @@ class UserForm extends Component {
     }
 }
 
-// export default reduxForm({
-//     form: 'UserForm',
-//     enableReinitialize: true,
-// })(UserForm);
-
 UserForm = reduxForm({
     form: 'UserForm',  // a unique identifier for this form
     enableReinitialize: true,
-})(UserForm)
+})(UserForm);
 
 // You have to connect() to any reducers that you wish to connect to yourself
 UserForm = connect(
@@ -60,8 +54,7 @@ UserForm = connect(
         return {
             initialValues: state.contactStore.contact // pull initial values from account reducer
         }
-    },
-    {load: fetchContact}               // bind account loading action creator
+    }
 )(UserForm);
 
 export default UserForm
