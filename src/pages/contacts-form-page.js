@@ -46,7 +46,6 @@ class ContactsFormPage extends Component {
         } else {
             if (_id) {
                 if (this.props.contact) {
-                    debugger
                     return (
                         <UserForm
                             onSubmit={this.submit}
