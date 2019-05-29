@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {fetchContacts, deleteContact} from '../actions/index';
+import {fetchContacts} from '../actions/contacts';
+import {deleteContact} from '../actions/index';
 import {Row, Col} from 'react-bootstrap';
 import UserCard from '../components/user-card';
 

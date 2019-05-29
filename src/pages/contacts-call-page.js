@@ -1,20 +1,20 @@
 import React, {Component} from 'react';
-import {Redirect} from 'react-router';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {ListGroup} from 'react-bootstrap';
-import {getContact} from "../actions";
 import UserCall from "../components/user-call";
+import {fetchContact} from '../actions/contact';
 
 class ContactsCallPage extends Component {
     componentDidMount() {
         const {_id} = this.props.match.params;
-        this.props.getContact(_id);
+        this.props.fetchContact(_id);
     }
 
     render() {
         const {_id} = this.props.match.params;
         const {contact} = this.props;
+
 
         if (_id) {
             if (this.props.contact) {
@@ -41,7 +41,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({getContact}, dispatch)
+    return bindActionCreators({fetchContact}, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ContactsCallPage);

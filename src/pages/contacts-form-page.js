@@ -4,7 +4,8 @@ import {bindActionCreators} from 'redux';
 import {connect} from "react-redux";
 import UserForm from '../components/user-form';
 import { SubmissionError } from 'redux-form';
-import {getContact, newContact, updateContact, saveContact} from '../actions';
+import {newContact, updateContact, saveContact} from '../actions';
+import {fetchContact} from '../actions/contact';
 
 
 class ContactsFormPage extends Component {
@@ -15,7 +16,7 @@ class ContactsFormPage extends Component {
     componentDidMount() {
         const {_id} = this.props.match.params;
         if (_id) {
-            this.props.getContact(_id);
+            this.props.fetchContact(_id);
         } else {
             this.props.newContact();
         }
@@ -39,11 +40,13 @@ class ContactsFormPage extends Component {
 
     render() {
         const {_id} = this.props.match.params;
+
         if (this.state.redirect) {
             return <Redirect to="/"/>
         } else {
             if (_id) {
                 if (this.props.contact) {
+                    debugger
                     return (
                         <UserForm
                             onSubmit={this.submit}
@@ -75,7 +78,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({getContact, newContact, updateContact, saveContact}, dispatch)
+    return bindActionCreators({fetchContact, newContact, updateContact, saveContact}, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ContactsFormPage);
