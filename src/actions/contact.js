@@ -22,16 +22,16 @@ export function fetchContactError(error) {
     }
 }
 
-export const fetchContact = (_id) => {
+export const fetchContact = (id) => {
     return dispatch => {
         dispatch(fetchContactPending());
-        fetch(`${baseURL}/contacts?_id=${_id}`)
+        fetch(`${baseURL}/contacts/${id}`)
             .then(res => res.json())
             .then(res => {
                 if(res.error) {
                     throw(res.error);
                 }
-                dispatch(fetchContactSuccess(res[0]));
+                dispatch(fetchContactSuccess(res));
                 return res;
             })
             .catch(error => {

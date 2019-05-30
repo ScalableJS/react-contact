@@ -1,5 +1,3 @@
-import actionEnum from "./actionsEnum";
-
 export const DELETE_CONTACT_PENDING = 'DELETE_CONTACT_PENDING';
 export const DELETE_CONTACT_SUCCESS = 'DELETE_CONTACT_SUCCESS';
 export const DELETE_CONTACT_ERROR = 'DELETE_CONTACT_ERROR';

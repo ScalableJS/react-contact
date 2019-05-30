@@ -4,8 +4,10 @@ import {bindActionCreators} from 'redux';
 import {connect} from "react-redux";
 import UserForm from '../components/user-form';
 import { SubmissionError } from 'redux-form';
-import {newContact, updateContact, saveContact} from '../actions';
+import {newContact, updateContact} from '../actions';
 import {fetchContact} from '../actions/contact';
+import {saveContact} from '../actions/saveContact';
+
 
 
 class ContactsFormPage extends Component {

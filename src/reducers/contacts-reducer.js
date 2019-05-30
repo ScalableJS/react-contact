@@ -2,6 +2,7 @@ import actionsEnum from '../actions/actionsEnum';
 import {FETCH_CONTACTS_PENDING, FETCH_CONTACTS_SUCCESS, FETCH_CONTACTS_ERROR} from '../actions/contacts';
 import {FETCH_CONTACT_PENDING, FETCH_CONTACT_SUCCESS, FETCH_CONTACT_ERROR} from '../actions/contact';
 import {DELETE_CONTACT_PENDING, DELETE_CONTACT_SUCCESS, DELETE_CONTACT_ERROR} from '../actions/deleteContact';
+import {SAVE_CONTACT_PENDING, SAVE_CONTACT_SUCCESS, SAVE_CONTACT_ERROR} from '../actions/saveContact';
 
 const defaultContact = {
     name: {},
@@ -10,7 +11,7 @@ const defaultContact = {
 const defaultState = {
     contacts: [],
     contact: defaultContact,
-    loading: false
+    pending: false
 };
 export default (state = defaultState, action) => {
     switch (action.type) {
@@ -65,6 +66,25 @@ export default (state = defaultState, action) => {
                 contacts: state.contacts.filter(item => item.id !== id)
             };
         case DELETE_CONTACT_ERROR:
+            return {
+                ...state,
+                pending: false,
+                error: action.error
+            };
+
+        // SAVE ONE CONTACT
+        case SAVE_CONTACT_PENDING:
+            return {
+                ...state,
+                pending: true
+            };
+        case SAVE_CONTACT_SUCCESS:
+            return {
+                ...state,
+                pending: false,
+                contacts: [...state.contacts, action.payload]
+            };
+        case SAVE_CONTACT_ERROR:
             return {
                 ...state,
                 pending: false,

@@ -8,24 +8,9 @@ export function newContact() {
     }
 }
 
-export function saveContact(contact) {
-    return dispatch => {
-        return fetch('/api/contacts', {
-            contact: contact,
-            type: actionEnum.SAVE_CONTACT
-        }).then((contacts) => {
-            dispatch({
-                type: actionEnum.SAVE_CONTACT,
-                payload: contacts
-            })
-        });
-    }
-
-}
-
 export function updateContact(contact) {
     return dispatch => {
-        return fetch(`/api/contacts/${contact._id}`, {
+        fetch(`/api/contacts/${contact.id}`, {
             contact: contact,
             type: actionEnum.UPDATE_CONTACT
         }).then((contacts) => {
@@ -33,19 +18,6 @@ export function updateContact(contact) {
                 type: actionEnum.UPDATE_CONTACT,
                 payload: contacts
             })
-        })
-    }
-}
-
-export function deleteContact(_id) {
-    return dispatch => {
-        return fetch(`/api/contacts/${_id}`, {
-            type: actionEnum.DELETE_CONTACT
-        }).then(() => {
-            dispatch({
-                type: actionEnum.DELETE_CONTACT,
-                payload: _id
-            });
         })
     }
 }
