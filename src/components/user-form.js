@@ -1,25 +1,17 @@
 import React, {Component} from 'react';
 import {Form, Field, reduxForm} from 'redux-form';
 import {Row, Col, Button, FormGroup, FormControl} from 'react-bootstrap';
-import {connect} from "react-redux";
+
 
 const renderField = ({input, label, type, meta: {touched, error}}) => {
     return <FormControl
         type={type}
         placeholder={label}
-
         value={input.value}
         onChange={input.onChange}/>
-    // return <div>
-    //
-    //     <label>{label}</label>
-    //     <input {...input} placeholder={label} type={type}/>
-    //     {touched && error && <span className="error">{error.message}</span>}
-    // </div>
 };
 
 class UserForm extends Component {
-
     render() {
         console.log(this.props.contact)
         const {handleSubmit, pristine, submitting, isNew} = this.props;
@@ -38,8 +30,6 @@ class UserForm extends Component {
                     </Form>
                 </Col>
             </Row>
-
-
         )
     }
 }
