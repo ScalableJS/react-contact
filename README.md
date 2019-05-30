@@ -1,3 +1,4 @@
+### Oleg Ch
 In the project directory, you can run:
 ### `npm install -g json-server`
 ### `json-server --watch ./backend/db.json --port 3030`  
@@ -13,9 +14,9 @@ The following was implemented:
 - contact editing  
 - contact removing  
 - history of calls for each contact
+- json-server
  
 ###working on it
-- json-server
 - pagination
 
 
