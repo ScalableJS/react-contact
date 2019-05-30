@@ -1,4 +1,3 @@
-import actionsEnum from '../actions/actionsEnum';
 import contact from './contact';
 import contacts from './contacts';
 import deleteContact from './deleteContact';
@@ -14,33 +13,13 @@ const defaultState = {
     pending: false
 };
 
-const DEFAULT = () => defaultState;
-export default (state = defaultState, action) => {
+const DEFAULT = (state) => state;
 
+export default (state = defaultState, action) => {
     return ({
         ...contacts,
         ...contact,
         ...deleteContact,
         ...saveContact
     }[action.type] || DEFAULT)(state, action);
-
-    switch (action.type) {
-
-        // -------------
-
-
-        case actionsEnum.NEW_CONTACT:
-            return {
-                ...state,
-                contact: defaultContact
-            };
-        case actionsEnum.UPDATE_CONTACT:
-            return {
-                ...state,
-                contacts: action.payload,
-            };
-
-        default:
-            return state;
-    }
 }
