@@ -1,6 +1,7 @@
 import actionsEnum from '../actions/actionsEnum';
 import {FETCH_CONTACTS_PENDING, FETCH_CONTACTS_SUCCESS, FETCH_CONTACTS_ERROR} from '../actions/contacts';
 import {FETCH_CONTACT_PENDING, FETCH_CONTACT_SUCCESS, FETCH_CONTACT_ERROR} from '../actions/contact';
+import {DELETE_CONTACT_PENDING, DELETE_CONTACT_SUCCESS, DELETE_CONTACT_ERROR} from '../actions/deleteContact';
 
 const defaultContact = {
     name: {},
@@ -50,7 +51,28 @@ export default (state = defaultState, action) => {
                 error: action.error
             };
 
+        // DELETE ONE CONTACT
+        case DELETE_CONTACT_PENDING:
+            return {
+                ...state,
+                pending: true
+            };
+        case DELETE_CONTACT_SUCCESS:
+            const id = action.payload;
+            return {
+                ...state,
+                pending: false,
+                contacts: state.contacts.filter(item => item.id !== id)
+            };
+        case DELETE_CONTACT_ERROR:
+            return {
+                ...state,
+                pending: false,
+                error: action.error
+            };
+
         // -------------
+
 
         case actionsEnum.NEW_CONTACT:
             return {
@@ -62,13 +84,7 @@ export default (state = defaultState, action) => {
                 ...state,
                 contacts: action.payload,
             };
-        case actionsEnum.DELETE_CONTACT:
-            const _id = action.payload;
 
-            return {
-                ...state,
-                contacts: state.contacts.filter(item => item._id !== _id)
-            };
         default:
             return state;
     }

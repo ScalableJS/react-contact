@@ -2,7 +2,7 @@ For user - https://next.json-generator.com/N1NE5wohU
 [
   {
     'repeat(5, 10)': {
-      _id: '{{objectId()}}',
+      id: '{{objectId()}}',
       name: {
         first: '{{firstName()}}',
         last: '{{surname()}}'

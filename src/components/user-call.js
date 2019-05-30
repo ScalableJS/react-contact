@@ -28,7 +28,7 @@ export default function UserCall({contact}) {
             }).format(item.duration);
 
 
-            return <ListGroup.Item key={item._id}>
+            return <ListGroup.Item key={item.id}>
                 <Row>
                     <Col className={'text-nowrap'}>{formatCallDate}</Col>
                     <CallDirect type={item.type}/>

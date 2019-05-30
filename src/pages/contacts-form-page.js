@@ -14,16 +14,16 @@ class ContactsFormPage extends Component {
     };
 
     componentDidMount() {
-        const {_id} = this.props.match.params;
-        if (_id) {
-            this.props.fetchContact(_id);
+        const {id} = this.props.match.params;
+        if (id) {
+            this.props.fetchContact(id);
         } else {
             this.props.newContact();
         }
     }
 
     submit = (contact) => {
-        if (contact._id) {
+        if (contact.id) {
             return this.props.updateContact(contact)
                 .then(response => this.setState({redirect: true}))
                 .catch(err => {
@@ -39,12 +39,12 @@ class ContactsFormPage extends Component {
     };
 
     render() {
-        const {_id} = this.props.match.params;
+        const {id} = this.props.match.params;
 
         if (this.state.redirect) {
             return <Redirect to="/"/>
         } else {
-            if (_id) {
+            if (id) {
                 if (this.props.contact) {
                     return (
                         <UserForm

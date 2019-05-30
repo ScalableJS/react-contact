@@ -7,16 +7,16 @@ import {fetchContact} from '../actions/contact';
 
 class ContactsCallPage extends Component {
     componentDidMount() {
-        const {_id} = this.props.match.params;
-        this.props.fetchContact(_id);
+        const {id} = this.props.match.params;
+        this.props.fetchContact(id);
     }
 
     render() {
-        const {_id} = this.props.match.params;
+        const {id} = this.props.match.params;
         const {contact} = this.props;
 
 
-        if (_id) {
+        if (id) {
             if (this.props.contact) {
                 return (
                     <ListGroup>

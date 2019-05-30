@@ -21,6 +21,7 @@ const renderField = ({input, label, type, meta: {touched, error}}) => {
 class UserForm extends Component {
 
     render() {
+        console.log(this.props.contact)
         const {handleSubmit, pristine, submitting, isNew} = this.props;
         return (
             <Row>

@@ -14,7 +14,7 @@ export default function UserCard({contact, deleteContact, callPhone}) {
                 <Card.Text className={'text-nowrap'}>
                     <IconPhone/>
                     <a href={`tel:${contact.phone}`}
-                       onClick={() => callPhone(contact._id)}
+                       onClick={() => callPhone(contact.id)}
                     >{contact.phone}</a>
                 </Card.Text>
                 <Card.Text className={'text-nowrap'}>
@@ -22,10 +22,10 @@ export default function UserCard({contact, deleteContact, callPhone}) {
                     <a href={`mailto:${contact.email}`}>{contact.email}</a>
                 </Card.Text>
                 <hr/>
-                <Link className={'btn btn-link'} to={`/contacts/calls/${contact._id}`}> Call history</Link>
-                <Link className={'btn btn-link'} to={`/contacts/edit/${contact._id}`}> Edit</Link>
+                <Link className={'btn btn-link'} to={`/contacts/calls/${contact.id}`}> Call history</Link>
+                <Link className={'btn btn-link'} to={`/contacts/edit/${contact.id}`}> Edit</Link>
                 <Button variant="primary"
-                        onClick={() => deleteContact(contact._id)}> Delete</Button>
+                        onClick={() => deleteContact(contact.id)}> Delete</Button>
             </Card.Body>
         </Card>
     )

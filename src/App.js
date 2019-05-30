@@ -30,8 +30,8 @@ class App extends Component {
                 <Switch>
                     <Route exact path="/" component={ContactsListPage}/>
                     <Route path="/contacts/new" component={ContactsFormPage}/>
-                    <Route path="/contacts/edit/:_id" component={ContactsFormPage}/>
-                    <Route path="/contacts/calls/:_id" component={ContactsCallPage}/>
+                    <Route path="/contacts/edit/:id" component={ContactsFormPage}/>
+                    <Route path="/contacts/calls/:id" component={ContactsCallPage}/>
                     <Route component={Page404}/> {/* The Default not found component */}
                 </Switch>
 
