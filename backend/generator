@@ -1,8 +1,8 @@
 For user - https://next.json-generator.com/N1NE5wohU
-[
+{contacts:[
   {
-    'repeat(5, 10)': {
-      id: '{{objectId()}}',
+    'repeat(20)': {
+      _id: '{{objectId()}}',
       name: {
         first: '{{firstName()}}',
         last: '{{surname()}}'
@@ -24,5 +24,6 @@ For user - https://next.json-generator.com/N1NE5wohU
     }
   }
 ]
+}
 
 type -Outgoing / Didn't connect / Incoming

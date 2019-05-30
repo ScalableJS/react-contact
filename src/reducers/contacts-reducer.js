@@ -1,8 +1,8 @@
 import actionsEnum from '../actions/actionsEnum';
-import {FETCH_CONTACTS_PENDING, FETCH_CONTACTS_SUCCESS, FETCH_CONTACTS_ERROR} from '../actions/contacts';
-import {FETCH_CONTACT_PENDING, FETCH_CONTACT_SUCCESS, FETCH_CONTACT_ERROR} from '../actions/contact';
-import {DELETE_CONTACT_PENDING, DELETE_CONTACT_SUCCESS, DELETE_CONTACT_ERROR} from '../actions/deleteContact';
-import {SAVE_CONTACT_PENDING, SAVE_CONTACT_SUCCESS, SAVE_CONTACT_ERROR} from '../actions/saveContact';
+import contact from './contact';
+import contacts from './contacts';
+import deleteContact from './deleteContact';
+import saveContact from './saveContact';
 
 const defaultContact = {
     name: {},
@@ -13,83 +13,18 @@ const defaultState = {
     contact: defaultContact,
     pending: false
 };
+
+const DEFAULT = () => defaultState;
 export default (state = defaultState, action) => {
+
+    return ({
+        ...contacts,
+        ...contact,
+        ...deleteContact,
+        ...saveContact
+    }[action.type] || DEFAULT)(state, action);
+
     switch (action.type) {
-        // FETCH_CONTACTS
-        case FETCH_CONTACTS_PENDING:
-            return {
-                ...state,
-                pending: true
-            };
-        case FETCH_CONTACTS_SUCCESS:
-            return {
-                ...state,
-                pending: false,
-                contacts: action.contacts
-            };
-        case FETCH_CONTACTS_ERROR:
-            return {
-                ...state,
-                pending: false,
-                error: action.error
-            };
-        // FETCH ONE CONTACT
-        case FETCH_CONTACT_PENDING:
-            return {
-                ...state,
-                pending: true
-            };
-        case FETCH_CONTACT_SUCCESS:
-            return {
-                ...state,
-                pending: false,
-                contact: action.contact
-            };
-        case FETCH_CONTACT_ERROR:
-            return {
-                ...state,
-                pending: false,
-                error: action.error
-            };
-
-        // DELETE ONE CONTACT
-        case DELETE_CONTACT_PENDING:
-            return {
-                ...state,
-                pending: true
-            };
-        case DELETE_CONTACT_SUCCESS:
-            const id = action.payload;
-            return {
-                ...state,
-                pending: false,
-                contacts: state.contacts.filter(item => item.id !== id)
-            };
-        case DELETE_CONTACT_ERROR:
-            return {
-                ...state,
-                pending: false,
-                error: action.error
-            };
-
-        // SAVE ONE CONTACT
-        case SAVE_CONTACT_PENDING:
-            return {
-                ...state,
-                pending: true
-            };
-        case SAVE_CONTACT_SUCCESS:
-            return {
-                ...state,
-                pending: false,
-                contacts: [...state.contacts, action.payload]
-            };
-        case SAVE_CONTACT_ERROR:
-            return {
-                ...state,
-                pending: false,
-                error: action.error
-            };
 
         // -------------
 
