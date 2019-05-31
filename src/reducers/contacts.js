@@ -5,11 +5,14 @@ export default {
         ...state,
         pending: true
     }),
-    [FETCH_CONTACTS_SUCCESS]: (state, action) => ({
-        ...state,
-        pending: false,
-        contacts: action.contacts
-    }),
+    [FETCH_CONTACTS_SUCCESS]: (state, action) => {
+        return {
+            ...state,
+            pending: false,
+            contacts: action.contacts,
+            count: action.count
+        }
+    },
     [FETCH_CONTACTS_ERROR]: (state, action) => ({
         ...state,
         pending: false,

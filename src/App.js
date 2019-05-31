@@ -29,6 +29,7 @@ class App extends Component {
                 </Nav>
                 <Switch>
                     <Route exact path="/" component={ContactsListPage}/>
+                    <Route path="/:page" component={ContactsListPage}/>
                     <Route path="/contacts/new" component={ContactsFormPage}/>
                     <Route path="/contacts/edit/:id" component={ContactsFormPage}/>
                     <Route path="/contacts/calls/:id" component={ContactsCallPage}/>
