@@ -15,9 +15,10 @@ The following was implemented:
 - contact removing  
 - history of calls for each contact
 - json-server
+- pagination
  
 ###working on it
-- pagination
+- reselect
 
 
 ###Info:
