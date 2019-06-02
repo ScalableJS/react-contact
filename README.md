@@ -19,7 +19,7 @@ The following was implemented:
  
 ###working on it
 - reselect
-
+- validation
 
 ###Info:
 App emulates request to backend but work using sessionStorage  
